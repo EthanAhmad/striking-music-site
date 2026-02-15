@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Striking Music | Percussion Lessons in Houston, TX</title>
+    <meta name="description" content="Private percussion lessons for students of all levels in the Houston area. Expert instruction in snare, mallets, drumset, and marching percussion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --color-bg: #0C0C0E;
+            --color-bg-elevated: #151518;
+            --color-bg-card: #1A1A1F;
+            --color-surface: #222228;
+            --color-border: #2A2A32;
+            --color-text: #E8E6E1;
+            --color-text-secondary: #9B9A97;
+            --color-text-muted: #6B6A68;
+            --color-accent: #D4A04A;
+            --color-accent-light: #E8C476;
+            --color-accent-dim: #A37B2F;
+            --color-accent-glow: rgba(212, 160, 74, 0.12);
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+            --max-width: 1120px;
+            --radius: 10px;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        a { color: var(--color-accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--color-accent-light); }
+        img { max-width: 100%; display: block; }
+
+        /* ===== UTILITY ===== */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
+        .section-label {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(12, 12, 14, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-logo {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-logo-icon {
+            width: 32px; height: 32px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+            color: var(--color-bg);
+            font-weight: 600;
+        }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--color-text); }
+        .nav-cta {
+            font-size: 0.78rem !important;
+            font-weight: 500 !important;
+            color: var(--color-bg) !important;
+            background: var(--color-accent);
+            padding: 8px 20px;
+            border-radius: 6px;
+            transition: background 0.2s, transform 0.15s !important;
+        }
+        .nav-cta:hover {
+            background: var(--color-accent-light) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile nav toggle */
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .nav-toggle span {
+            display: block; width: 22px; height: 2px;
+            background: var(--color-text); margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%; right: -20%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            max-width: 720px;
+        }
+        .hero-eyebrow {
+            font-weight: 500;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 32px; height: 1px;
+            background: var(--color-accent);
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+            line-height: 1.1;
+            color: var(--color-text);
+            margin-bottom: 28px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            max-width: 540px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-light);
+            color: var(--color-bg);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.88rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--color-text-muted);
+            transform: translateY(-2px);
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats {
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            padding: 40px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-visual {
+            position: relative;
+        }
+        .about-visual-box {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-visual-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+        .about-quote {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+        .about-quote-attr {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+        }
+        .about-text p {
+            color: var(--color-text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .about-text p:last-child { margin-bottom: 0; }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            background: var(--color-bg-elevated);
+        }
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .services-header p {
+            color: var(--color-text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .services-grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .services-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .services-cta p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .service-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            transition: border-color 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            border-color: var(--color-accent-dim);
+            transform: translateY(-4px);
+        }
+        .service-card.featured {
+            border-color: var(--color-accent-dim);
+        }
+        .service-icon {
+            width: 44px; height: 44px;
+            background: var(--color-accent-glow);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+        }
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 20px;
+        }
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+        .service-features li {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            padding: 6px 0;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-features li::before {
+            content: '✓';
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        /* ===== APPROACH ===== */
+        .approach {
+            padding: 100px 0;
+        }
+        .approach-header {
+            margin-bottom: 60px;
+            max-width: 560px;
+        }
+        .approach-header p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .approach-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+        }
+        .approach-card-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-accent-dim);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .approach-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+        .approach-card p {
+            font-size: 0.86rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 0;
+            background: var(--color-bg-elevated);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+        .contact-info h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .contact-info > p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .contact-detail-icon {
+            width: 40px; height: 40px;
+            background: var(--color-accent-glow);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        .contact-detail-text {
+            font-size: 0.9rem;
+        }
+        .contact-detail-label {
+            color: var(--color-text-muted);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .contact-detail-value {
+            color: var(--color-text);
+        }
+        .contact-form {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 40px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-submit {
+            width: 100%;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+        .form-submit:hover { background: var(--color-accent-light); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: 48px 0 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--color-text); }
+        .footer-bottom {
+            border-top: 1px solid var(--color-border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content { animation: fadeUp 0.8s ease-out; }
+        .hero-content .hero-eyebrow { animation: fadeUp 0.6s ease-out 0.1s both; }
+        .hero-content h1 { animation: fadeUp 0.6s ease-out 0.2s both; }
+        .hero-content p { animation: fadeUp 0.6s ease-out 0.3s both; }
+        .hero-actions { animation: fadeUp 0.6s ease-out 0.4s both; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px; left: 0; right: 0;
+                background: var(--color-bg-elevated);
+                border-bottom: 1px solid var(--color-border);
+                padding: 20px 28px;
+                gap: 16px;
+            }
+            .nav-toggle { display: block; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .services-grid-2col { grid-template-columns: 1fr; }
+            .approach-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 130px 0 60px; }
+            .contact-form { padding: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-icon">SM</span>
+            Striking Music
+        </a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Lessons</a>
+            <a href="#approach">Approach</a>
+            <a href="#contact" class="nav-cta">Get Started</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Houston, Texas</div>
+            <h1>Percussion lessons that <em>strike</em> the right chord</h1>
+            <p>Private instruction for students of all levels — from first-time stick grip to university audition prep. We bring world-class training and a personal touch to every lesson.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Start Lessons →</a>
+                <a href="#approach" class="btn-secondary">Our Approach</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div>
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Teaching Experience</div>
+            </div>
+            <div>
+                <div class="stat-number">100's</div>
+                <div class="stat-label">of Students Taught</div>
+            </div>
+            <div>
+                <div class="stat-number">1,000's</div>
+                <div class="stat-label">of Lessons Given</div>
+            </div>
+            <div>
+                <div class="stat-number">Dozens</div>
+                <div class="stat-label">of DCI, University &amp; All-State Placements</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-visual">
+                <div class="about-visual-box">
+                    <div class="about-quote">"We focus on packing the highest-impact material into the most efficient path — so students experience maximum growth with minimal wasted time."</div>
+                    <div class="about-quote-attr">— Ethan, Founder & Instructor</div>
+                </div>
+            </div>
+            <div class="about-text">
+                <div class="section-label">About</div>
+                <h2 class="section-heading">Built on experience at the highest level</h2>
+                <p>Striking Music provides musical instruction, consultation, and digital content with a focus on percussion. With an early background in the marching arts followed by extensive training in classical and contemporary percussion performance, we bring a holistic and widely informed perspective to students looking to advance their playing.</p>
+                <p>After working with hundreds of private students and taking high school groups to the highest levels of competition in the marching band scene, we know what students need to thrive — whether that's at the local, state, or national level.</p>
+                <p>Whether your child is picking up sticks for the first time or preparing for a college audition, we tailor our approach to meet each student where they are. We're invested in developing a personal connection with every family we work with, providing quality instruction and clear communication every step of the way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="services-header">
+            <div class="section-label">Lesson Options</div>
+            <h2 class="section-heading">Two formats, one standard of excellence</h2>
+            <p>Every student receives the same quality of instruction regardless of lesson length. Choose the format that fits your student's age, goals, and schedule.</p>
+        </div>
+        <div class="services-grid-2col">
+            <div class="service-card">
+                <div class="service-icon">🥁</div>
+                <h3>30-Minute Lessons</h3>
+                <p>Ideal for younger students and beginners building foundational skills. Focused, efficient sessions that keep younger learners engaged.</p>
+                <ul class="service-features">
+                    <li>Personalized curriculum</li>
+                    <li>Direct instructor communication</li>
+                    <li>School band &amp; drumline support</li>
+                    <li>Flexible scheduling &amp; rescheduling</li>
+                </ul>
+            </div>
+            <div class="service-card featured">
+                <div class="service-icon">🏆</div>
+                <h3>60-Minute Lessons</h3>
+                <p>For intermediate to advanced students who need more time to cover technique, repertoire, and performance preparation in depth.</p>
+                <ul class="service-features">
+                    <li>Personalized curriculum</li>
+                    <li>Direct instructor communication</li>
+                    <li>Audition &amp; competition prep</li>
+                    <li>Flexible scheduling &amp; rescheduling</li>
+                </ul>
+            </div>
+        </div>
+        <div class="services-cta">
+            <p>Not sure which is right for your student?</p>
+            <a href="#contact" class="btn-secondary">Let's Talk →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="approach" id="approach">
+    <div class="container">
+        <div class="approach-header">
+            <div class="section-label">Our Approach</div>
+            <h2 class="section-heading">How we teach</h2>
+            <p>Every student gets a curriculum designed specifically for them — not a one-size-fits-all method book.</p>
+        </div>
+        <div class="approach-grid">
+            <div class="approach-card">
+                <div class="approach-card-number">01</div>
+                <h3>Meet where you are</h3>
+                <p>We start by understanding your student's current level, interests, and goals. Whether it's concert percussion, drumline, drumset, or mallets — we build from there.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-card-number">02</div>
+                <h3>Efficient curriculum design</h3>
+                <p>Our materials are carefully curated to deliver the highest impact in the least amount of time. Every exercise and piece serves a specific developmental purpose.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-card-number">03</div>
+                <h3>Clear communication</h3>
+                <p>Parents stay informed with regular updates, monthly statements, and direct access to the instructor. You'll always know how your student is progressing.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-card-number">04</div>
+                <h3>Performance-ready</h3>
+                <p>From school band auditions to state competitions and college prep, we prepare students to perform with confidence when it matters most.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="section-label">Get Started</div>
+                <h2>Ready to begin?</h2>
+                <p>Send us a message with your student's name, grade level, and what they're interested in learning. We'll get back to you to discuss scheduling and find the right plan.</p>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">✉</div>
+                    <div class="contact-detail-text">
+                        <div class="contact-detail-label">Email</div>
+                        <div class="contact-detail-value">Ethan@Striking-Music.com</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">📍</div>
+                    <div class="contact-detail-text">
+                        <div class="contact-detail-label">Service Area</div>
+                        <div class="contact-detail-value">Houston, TX &amp; Surrounding Areas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Parent / Guardian Name</label>
+                            <input type="text" name="parent_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Student Name</label>
+                            <input type="text" name="student_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>What instrument(s) is your student interested in?</label>
+                        <select name="instrument">
+                            <option value="">Select one...</option>
+                            <option>Snare / Concert Percussion</option>
+                            <option>Mallets (Marimba, Vibes, Bells)</option>
+                            <option>Drumset</option>
+                            <option>Marching Percussion / Drumline</option>
+                            <option>Timpani</option>
+                            <option>Multiple / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tell us about your student and their goals</label>
+                        <textarea name="message" rows="4" placeholder="Grade level, experience, what they'd like to work on..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <span class="nav-logo-icon">SM</span>
+                    Striking Music
+                </div>
+                <p>Private percussion instruction for students of all levels in the Houston, TX area.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#about">About</a>
+                <a href="#services">Lesson Plans</a>
+                <a href="#approach">Our Approach</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="sms-terms.html">SMS Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Striking Music. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="sms-terms.html">SMS Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const subject = encodeURIComponent(`New Student Inquiry - ${data.get('student_name')}`);
+    const body = encodeURIComponent(
+        `Parent/Guardian: ${data.get('parent_name')}\n` +
+        `Student: ${data.get('student_name')}\n` +
+        `Email: ${data.get('email')}\n` +
+        `Phone: ${data.get('phone') || 'Not provided'}\n` +
+        `Instrument: ${data.get('instrument') || 'Not specified'}\n\n` +
+        `Message:\n${data.get('message') || 'No additional details.'}`
+    );
+    window.location.href = `mailto:Ethan@Striking-Music.com?subject=${subject}&body=${body}`;
+}
+</script>
+
+</body>
+</html>
