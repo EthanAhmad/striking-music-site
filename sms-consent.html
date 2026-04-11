@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Consent | Striking Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0C0C0E;
+            --color-bg-elevated: #151518;
+            --color-bg-card: #1A1A1F;
+            --color-border: #2A2A32;
+            --color-text: #E8E6E1;
+            --color-text-secondary: #9B9A97;
+            --color-text-muted: #6B6A68;
+            --color-accent: #D4A04A;
+            --color-accent-light: #E8C476;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+            --max-width: 780px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { color: var(--color-accent-light); }
+        nav { border-bottom: 1px solid var(--color-border); padding: 0 28px; }
+        .nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .nav-logo { font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); display: flex; align-items: center; gap: 10px; }
+        .nav-logo-icon { width: 32px; height: 32px; background: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--color-bg); font-weight: 600; }
+        .back-link { font-size: 0.85rem; color: var(--color-text-secondary); }
+        .content { max-width: var(--max-width); margin: 0 auto; padding: 60px 28px 100px; }
+        .content h1 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.2; margin-bottom: 8px; }
+        .content .last-updated { font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 48px; }
+        .content h2 { font-family: var(--font-display); font-size: 1.3rem; margin-top: 40px; margin-bottom: 12px; color: var(--color-accent); }
+        .content p { color: var(--color-text-secondary); font-size: 0.92rem; margin-bottom: 16px; }
+        .content ul { list-style: none; padding: 0; margin-bottom: 16px; }
+        .content ul li { color: var(--color-text-secondary); font-size: 0.92rem; padding: 4px 0 4px 20px; position: relative; }
+        .content ul li::before { content: '•'; position: absolute; left: 4px; color: var(--color-accent); }
+
+        /* Consent form */
+        .consent-form {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+        .consent-form h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 6px;
+            font-weight: 400;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .form-group input:focus {
+            border-color: var(--color-accent);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 24px 0;
+            padding: 16px;
+            background: var(--color-bg-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-accent);
+            flex-shrink: 0;
+        }
+        .checkbox-group label {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        .checkbox-group label strong {
+            color: var(--color-text);
+        }
+        .consent-submit {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .consent-submit:hover {
+            background: var(--color-accent-light);
+        }
+        .consent-note {
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            margin-top: 16px;
+        }
+
+        /* Success state */
+        .success-message {
+            display: none;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .success-message .check {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .success-message h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .success-message p {
+            color: var(--color-text-secondary);
+            font-size: 0.92rem;
+        }
+
+        footer { border-top: 1px solid var(--color-border); padding: 24px 28px; text-align: center; }
+        footer p { font-size: 0.75rem; color: var(--color-text-muted); }
+        footer a { font-size: 0.75rem; color: var(--color-text-muted); margin: 0 12px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <span class="nav-logo-icon">SM</span>
+            Striking Music
+        </a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+</nav>
+
+<main class="content">
+    <h1>SMS Consent</h1>
+    <p class="last-updated">Last updated: March 1, 2026</p>
+
+    <p>Striking Music offers optional text message (SMS) notifications to keep families informed about lesson scheduling, monthly statements, and important updates. Use the form below to opt in to receive text messages from us.</p>
+
+    <h2>What You'll Receive</h2>
+    <ul>
+        <li>Monthly lesson statements and payment confirmations</li>
+        <li>Lesson scheduling changes, reschedules, and confirmations</li>
+        <li>Important reminders and updates related to your student's lessons</li>
+    </ul>
+    <p>Message frequency is typically 1–4 messages per month. This is a transactional messaging program — we do not send marketing or promotional messages. Standard message and data rates may apply.</p>
+
+    <div class="consent-form" id="consentForm">
+        <h3>Opt In to SMS Notifications</h3>
+
+        <div class="form-group">
+            <label for="parentName">Parent / Guardian Name</label>
+            <input type="text" id="parentName" placeholder="Your full name">
+        </div>
+
+        <div class="form-group">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" placeholder="Your student's name">
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Mobile Phone Number</label>
+            <input type="tel" id="phoneNumber" placeholder="(555) 555-5555">
+        </div>
+
+        <div class="form-group">
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" placeholder="your@email.com">
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="smsConsent">
+            <label for="smsConsent">
+                <strong>I agree to receive text messages from Striking Music</strong> regarding lesson scheduling, monthly statements, and important updates at the phone number provided above. I understand that message and data rates may apply, message frequency is approximately 1–4 per month, and I can opt out at any time by replying <strong>STOP</strong>. I have read and agree to the <a href="sms-terms.html">SMS Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.
+            </label>
+        </div>
+
+        <button class="consent-submit" onclick="handleConsent()">Submit</button>
+
+        <p class="consent-note">Consent is voluntary and is not a condition of enrollment. Your phone number and consent will not be shared with or sold to any third party. Reply STOP to opt out at any time. Reply HELP for assistance. Contact <a href="mailto:Ethan@Striking-Music.com">Ethan@Striking-Music.com</a> with any questions.</p>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        <div class="check">✓</div>
+        <h3>You're all set!</h3>
+        <p>Thank you for opting in to SMS notifications from Striking Music. You can opt out at any time by replying <strong>STOP</strong> to any message, or by contacting <a href="mailto:Ethan@Striking-Music.com">Ethan@Striking-Music.com</a>.</p>
+    </div>
+
+    <h2>Opt Out</h2>
+    <p>You can opt out of text messages at any time by replying <strong>STOP</strong> to any message from Striking Music. You may also contact the instructor directly at <a href="mailto:Ethan@Striking-Music.com">Ethan@Striking-Music.com</a> to opt out.</p>
+
+    <h2>Help</h2>
+    <p>For questions about the SMS program, reply <strong>HELP</strong> to any message, or contact <a href="mailto:Ethan@Striking-Music.com">Ethan@Striking-Music.com</a>. For full details, see our <a href="sms-terms.html">SMS Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+</main>
+
+<footer>
+    <p>&copy; 2026 Striking Music. All rights reserved.</p>
+    <div style="margin-top: 8px;">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="sms-terms.html">SMS Terms</a>
+    </div>
+</footer>
+
+<script>
+function handleConsent() {
+    var name = document.getElementById('parentName').value.trim();
+    var student = document.getElementById('studentName').value.trim();
+    var phone = document.getElementById('phoneNumber').value.trim();
+    var consent = document.getElementById('smsConsent').checked;
+
+    if (!name || !student || !phone) {
+        alert('Please fill in your name, student name, and phone number.');
+        return;
+    }
+    if (!consent) {
+        alert('Please check the consent box to opt in to SMS notifications.');
+        return;
+    }
+
+    // Show success message, hide form
+    document.getElementById('consentForm').style.display = 'none';
+    document.getElementById('successMessage').style.display = 'block';
+
+    // Send notification email to instructor
+    var subject = encodeURIComponent('SMS Opt-In: ' + name + ' (' + student + ')');
+    var body = encodeURIComponent(name + ' has opted in to SMS notifications for ' + student + '.\nPhone: ' + phone);
+    window.open('mailto:Ethan@Striking-Music.com?subject=' + subject + '&body=' + body, '_self');
+}
+</script>
+
+</body>
+</html>
