@@ -180,7 +180,7 @@
 
 <main class="content">
     <h1>SMS Consent</h1>
-    <p class="last-updated">Last updated: March 1, 2026</p>
+    <p class="last-updated">Last updated: May 21, 2026</p>
 
     <p>Striking Music offers optional text message (SMS) notifications to keep families informed about lesson scheduling, monthly statements, and important updates. Use the form below to opt in to receive text messages from us.</p>
 
@@ -218,7 +218,14 @@
         <div class="checkbox-group">
             <input type="checkbox" id="smsConsent">
             <label for="smsConsent">
-                <strong>I agree to receive text messages from Striking Music</strong> regarding lesson scheduling, monthly statements, and important updates at the phone number provided above. I understand that message and data rates may apply, message frequency is approximately 1–4 per month, and I can opt out at any time by replying <strong>STOP</strong>. I have read and agree to the <a href="sms-terms.html">SMS Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.
+                <strong>I agree to receive text messages from Striking Music</strong> regarding lesson scheduling, monthly statements, and important updates at the phone number provided above. I understand that message and data rates may apply, message frequency is approximately 1–4 per month, and I can opt out at any time by replying <strong>STOP</strong> or reply <strong>HELP</strong> for assistance.
+            </label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="termsAgree">
+            <label for="termsAgree">
+                I have read and agree to the <a href="sms-terms.html">SMS Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.
             </label>
         </div>
 
@@ -256,13 +263,18 @@ function handleConsent() {
     var student = document.getElementById('studentName').value.trim();
     var phone = document.getElementById('phoneNumber').value.trim();
     var consent = document.getElementById('smsConsent').checked;
+    var terms = document.getElementById('termsAgree').checked;
 
     if (!name || !student || !phone) {
         alert('Please fill in your name, student name, and phone number.');
         return;
     }
     if (!consent) {
-        alert('Please check the consent box to opt in to SMS notifications.');
+        alert('Please check the box to consent to receive text messages.');
+        return;
+    }
+    if (!terms) {
+        alert('Please check the box to confirm you agree to the SMS Terms & Conditions and Privacy Policy.');
         return;
     }
 
